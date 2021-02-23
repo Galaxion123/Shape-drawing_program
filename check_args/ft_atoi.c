@@ -35,6 +35,8 @@ int     *ft_atoi(char *height, char *width)
     int     *arr;
 
     arr = malloc(sizeof(arr) * 2);
+    if (arr == NULL)
+        return (NULL);
     arr[0] = ft_atoi_help(height);
     arr[1] = ft_atoi_help(width);
     return (arr);
