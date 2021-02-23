@@ -21,6 +21,7 @@ int     str_cmp(char *str, char **table)
             return (i);
         i++;
     }
+    return (-1);
 }
 
 int     str_len(char *str)
