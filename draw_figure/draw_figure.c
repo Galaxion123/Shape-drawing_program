@@ -1,4 +1,4 @@
-#include <figd.h>
+#include "figd.h"
 
 void	ft_list_free(t_list *begin_list)
 {
@@ -53,13 +53,13 @@ t_list	*ft_create_list(void)
 {
 	t_list	*list;
 
-	list = ft_create_link(0, rectangle);
-	ft_push_link(list, 1, triangle);
-	ft_push_link(list, 2, circle);
-	ft_push_link(list, 3, heart);
-	ft_push_link(list, 4, parallelogram);
-	ft_push_link(list, 5, ellipse);
-	ft_push_link(list, 6, star);
+	list = ft_create_link(0, rect);
+	ft_push_link(list, 1, tri);
+	ft_push_link(list, 2, circ);
+	ft_push_link(list, 3, hrt);
+	ft_push_link(list, 4, parlm);
+	ft_push_link(list, 5, elps);
+	ft_push_link(list, 6, st);
 	return (list);
 }
 
