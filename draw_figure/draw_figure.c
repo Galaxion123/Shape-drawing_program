@@ -1,4 +1,67 @@
-#include <figd.h>
+#include "figd.h"
+
+void	ft_list_free(t_list *begin_list)
+{
+	t_list	*tmp;
+	t_list	*tmp2;
+
+	tmp = 0;
+	tmp2 = begin_list;
+	while (tmp2)
+	{
+		tmp = tmp2->next;
+		free(tmp2);
+		tmp2 = tmp;
+	}
+}
+
+t_list	*ft_create_link(int num, figure)
+{
+	t_list	*link;
+
+	link = malloc(sizeof(t_list));
+	if (link)
+	{
+		link->number = num;
+		link->figure = figure;
+		link->next = 0;
+	}
+	return (link);
+}
+
+void	ft_push_link(t_list *begin_list, int num, figure)
+{
+	t_list	*link;
+
+	if (begin_list)
+	{
+		link = ft_create_link(num, figure);
+		if (link == 0)
+		{
+			ft_list_free(begin_list);
+			write(2, "Memory allocation error\n", 24);
+			exit ;
+		}
+		link->next = begin_list;
+		begin_list = link;
+	}
+	else
+		begin_list = ft_create_link(num, figure);
+}
+
+t_list	*ft_create_list(void)
+{
+	t_list	*list;
+
+	list = ft_create_link(0, rect);
+	ft_push_link(list, 1, tri);
+	ft_push_link(list, 2, circ);
+	ft_push_link(list, 3, hrt);
+	ft_push_link(list, 4, parlm);
+	ft_push_link(list, 5, elps);
+	ft_push_link(list, 6, st);
+	return (list);
+}
 
 void	draw_figure(int fignum, int *dimensions)
 {
@@ -8,7 +71,7 @@ void	draw_figure(int fignum, int *dimensions)
 	while (figures)
 	{
 		if (fignum == figures->number)
-			figures->figure;
+			figures->figure(dimensions);
 		figures = figures->next;
 	}
 	write(1, "\n", 1);
