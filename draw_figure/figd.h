@@ -21,5 +21,6 @@ void	parallelogram(int *dimensions);
 void	ellipse(int *dimensions);
 void	star(int *dimensions);
 void	draw_figure(int fignum, int *dimensions);
+void	putchar(char c);
 
 #endif
