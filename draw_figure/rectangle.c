@@ -7,8 +7,8 @@ void	rectangle(int *dimensions)
 	int	i;
 	int	n;
 
-	x = dimensions[0];
-	y = dimensions[1];
+	x = dimensions[1];
+	y = dimensions[0];
 	i = 0;
 	n = 0;
 	while (i < y)
