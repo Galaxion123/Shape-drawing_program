@@ -9,7 +9,7 @@ typedef	void	(*figure)(int*);
 typedef struct		s_list
 {
 	int		number;
-//	typedef void	(*figure)(int*);
+	void	(*figure)(int*);
 	struct	s_list	*next;
 }			t_list;
 
@@ -21,6 +21,8 @@ void	parallelogram(int *dimensions);
 void	ellipse(int *dimensions);
 void	star(int *dimensions);
 void	draw_figure(int fignum, int *dimensions);
-void	putchar(char c);
+void	ft_putchar(char c);
+int	*ft_atoi(char *height, char *width);
+int	arg_parse(char *fig);
 
 #endif

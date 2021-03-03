@@ -1,4 +1,4 @@
-#include "figd.h"
+#include "../draw_figure/figd.h"
 
 void	triangle(int *dimensions)
 {
@@ -16,32 +16,32 @@ void	triangle(int *dimensions)
 	{
 		if (i == 0)
 		{
-			putchar('o');
-			putchar('\n');
+			ft_putchar('o');
+			ft_putchar('\n');
 			i++;
 		}
 		else
 		{
 			k = 1;
 			if (i + 1 == height)
-				putchar('o');
+				ft_putchar('o');
 			else
-				putchar('|');
+				ft_putchar('|');
 			while (k < step)
 			{
 				if (i + 1 == height)
-					putchar('-');
+					ft_putchar('-');
 				else
-					putchar(' ');
+					ft_putchar(' ');
 				k++;
 			}
 			if (step <= width)
 				step++;
 			if (i + 1 == height)
-				putchar('o');
+				ft_putchar('o');
 			else
-				putchar('\\');
-			putchar('\n');
+				ft_putchar('\\');
+			ft_putchar('\n');
 			i++;
 		}
 	}

@@ -1,4 +1,4 @@
-#include "figd.h"
+#include "../draw_figure/figd.h"
 
 void	rectangle(int *dimensions)
 {
@@ -16,16 +16,16 @@ void	rectangle(int *dimensions)
 		while (n < x)
 		{
 			if (((n == 0) || (n == (x - 1))) && ((i == 0) || (i == (y - 1))))
-				write(1, "o", 1);
+				ft_putchar('o');
 			else if ((n > 0) && (n < (x - 1)) && ((i == 0) || (i == (y - 1))))
-				write(1, "-", 1);
+				ft_putchar('-');
 			else if (((n == 0) || (n == (x - 1))) && ((i > 0) && (i < (y - 1))))
-				write(1, "|", 1);
+				ft_putchar('|');
 			else
-				write(1, " ", 1);
+				ft_putchar(' ');
 			n++;
 		}
-		write(1, "\n", 1);
+		ft_putchar('\n');
 		n = 0;
 		i++;
 	}

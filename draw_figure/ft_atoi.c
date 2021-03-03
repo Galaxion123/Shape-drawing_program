@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "figd.h"
 
 int	ft_atoi_help(char *numb)
 {

@@ -15,7 +15,7 @@ void	ft_list_free(t_list *begin_list)
 	}
 }
 
-t_list	*ft_create_link(int num, figure)
+t_list	*ft_create_link(int num, void *figure)
 {
 	t_list	*link;
 
@@ -29,7 +29,7 @@ t_list	*ft_create_link(int num, figure)
 	return (link);
 }
 
-void	ft_push_link(t_list *begin_list, int num, figure)
+void	ft_push_link(t_list *begin_list, int num, void *figure)
 {
 	t_list	*link;
 
@@ -40,10 +40,10 @@ void	ft_push_link(t_list *begin_list, int num, figure)
 		{
 			ft_list_free(begin_list);
 			write(2, "Memory allocation error\n", 24);
-			exit ;
+			exit(-1);
 		}
-		link->next = begin_list;
-		begin_list = link;
+		link->next = begin_list->next;
+		begin_list->next = link;
 	}
 	else
 		begin_list = ft_create_link(num, figure);
@@ -53,13 +53,13 @@ t_list	*ft_create_list(void)
 {
 	t_list	*list;
 
-	list = ft_create_link(0, rect);
-	ft_push_link(list, 1, tri);
-	ft_push_link(list, 2, circ);
-	ft_push_link(list, 3, hrt);
-	ft_push_link(list, 4, parlm);
-	ft_push_link(list, 5, elps);
-	ft_push_link(list, 6, st);
+	list = ft_create_link(0, rectangle);
+	ft_push_link(list, 1, triangle);
+	ft_push_link(list, 2, rectangle);//circle
+	ft_push_link(list, 3, triangle);//heart
+	ft_push_link(list, 4, rectangle);//parlm
+	ft_push_link(list, 5, triangle);//elps
+	ft_push_link(list, 6, rectangle);//st
 	return (list);
 }
 
@@ -67,7 +67,7 @@ void	draw_figure(int fignum, int *dimensions)
 {
 	t_list	*figures;
 
-	figures = ft_create_list(void);
+	figures = ft_create_list();
 	while (figures)
 	{
 		if (fignum == figures->number)

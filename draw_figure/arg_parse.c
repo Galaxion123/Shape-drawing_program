@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "figd.h"
 
 int	str_cmp(char *str, char **table)
 {
